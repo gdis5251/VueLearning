@@ -37,21 +37,24 @@
             },
             methods: {
                 calculate() {
-                    switch (this.op) {
-                        case "+":
-                            this.resualt = parseInt(this.lhs) + parseInt(this.rhs)
-                            break;
-                        case "-":
-                            this.resualt = parseInt(this.lhs) - parseInt(this.rhs)
-                            break;
-                        case "*":
-                            this.resualt = parseInt(this.lhs) * parseInt(this.rhs)
+                    // switch (this.op) {
+                    //     case "+":
+                    //         this.resualt = parseInt(this.lhs) + parseInt(this.rhs)
+                    //         break;
+                    //     case "-":
+                    //         this.resualt = parseInt(this.lhs) - parseInt(this.rhs)
+                    //         break;
+                    //     case "*":
+                    //         this.resualt = parseInt(this.lhs) * parseInt(this.rhs)
 
-                            break;
-                        case "/":
-                            this.resualt = parseInt(this.lhs) / parseInt(this.rhs)
-                            break;
-                    }
+                    //         break;
+                    //     case "/":
+                    //         this.resualt = parseInt(this.lhs) / parseInt(this.rhs)
+                    //         break;
+                    // }
+
+                    var codeStr = "parseInt(this.lhs)" + this.op + "parseInt(this.rhs)"
+                    this.resualt = eval(codeStr)
                 }
             }
         })
