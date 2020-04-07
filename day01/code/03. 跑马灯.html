@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入 vue 包 -->
+    <script src="lib/vue.js"></script>
+</head>
+
+<body>
+    <!-- 创建一个 vue 的控制区 -->
+    <div id="app">
+        <input type="button" value="浪起来" @click="lang">
+        <input type="button" value="低调" @click="stop">
+        <h2>{{ msg }}</h2>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            // 在 vm 实例中如果想要获取 data 中的数据，或调用 methods 中的方法，必须通过 this 来访问。
+            // vm 实例会监听自己实例的数据，如果数据发生改变，就会自动把新的数据同步到页面中去。
+            el: "#app",
+            data: {
+                msg: "猥琐发育，别浪~",
+                intervalId: null
+            },
+            methods: {
+                lang(){
+                    if (this.intervalId != null) {
+                        return;
+                    }
+                    this.intervalId = setInterval(() => {
+                        // console.log(this.msg);
+                        var firstLetter = this.msg.substring(0, 1);
+                        var toEnd = this.msg.substring(1);
+                        this.msg = toEnd + firstLetter;
+                    }, 400)
+                },
+                stop() {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

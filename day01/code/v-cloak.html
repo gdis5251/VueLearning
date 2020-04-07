@@ -19,7 +19,7 @@
         <!-- v-bind: 可以简写为 : -->
         <!-- v-bind: 中后面可以写一些合法的表达式 -->
         <!-- v-on 事件绑定机制 -->
-        <input type="button" value="按钮" :title="myTitle + '123'" v-on:click="show">
+        <input type="button" value="按钮" :title="myTitle + '123'" @click="show">
     </div>
 
 
@@ -43,3 +43,10 @@
 </body>
 
 </html>
+
+<!-- 1. 如何定义一个基本的Vue代码结构 -->
+<!-- 2. 插值表达式和 v-text 的区别 -->
+<!-- 3. v-cloak 解决插值表达式没有被加载时就显示原表达式 -->
+<!-- 4. v-html 渲染一个 html 字符串 -->
+<!-- 5. v-bind Vue 属性绑定机制。缩写是 : -->
+<!-- 6. v-on   Vue 提供的事件绑定机制。缩写是 @ -->
