@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 导入vue -->
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <!-- 将来 new 的 vue 实例会控制这个元素内的区域 -->
+    <!-- Vue 控制的元素区就是 V -->
+    <div id="app">
+        <!-- vue 绑定 -->
+        <p>{{msg}}</p>
+    </div>
+
+    <script>
+        // new 出来的 vm 对象就是 MVVM 中的 VM 调度者
+        var vm = new Vue({
+            el: "#app", // el 表示要控制的区域
+            // 这里的 data 就是 MVVM 中的 M ，专门用来保存页面中的数据
+            data: {     // data 属性中存放的是 el 中要用的数据
+                msg: "欢迎学习Vue"
+            },
+        })
+    </script>
+
+</body>
+
+</html>
