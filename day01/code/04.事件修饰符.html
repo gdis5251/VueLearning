@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        .inner {
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用.stop 阻止冒泡 -->
+        <!-- <div class="inner" @click="divHandler">
+            <input type="button" value="Dance" @click.stop="btnHandler">
+        </div> -->
+
+        <a href="http://www.baidu.com" @click.prevent="clickLink">有事？问百度！</a>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                divHandler() {
+                    console.log("div handler")
+                },
+                btnHandler() {
+                    console.log("btn handler")
+                },
+                clickLink() {
+                    console.log("link handler")
+                }
+            }
+        });
+        
+    </script>
+</body>
+
+</html>
