@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <a href="" @click.prevent="showWhichOne='signin'">登录</a>
+        <a href="" @click.prevent="showWhichOne='signup'">注册</a>
+        <!-- 显示对应组件 -->
+        <!-- component 是一个占位符，componentID 是将要展示的组件名称 -->
+        <!-- 通过 mode 属性，可以调整切换动画的方式，out-in 表示先出去，再进来 -->
+        <transition mode="out-in">
+            <component :is="showWhichOne"></component>
+        </transition>
+    </div>
+    <script>
+        Vue.component('signin', {
+            template: '<h3>Sign In</h3>'
+        })
+
+        Vue.component('signup', {
+            template: '<h3>Sign Up</h3>'
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true,
+                showWhichOne: 'signin'
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

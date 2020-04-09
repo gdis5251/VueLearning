@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 如果要使用组件，直接把组件的名称已 html 标签的形式引入就行 -->
+        <mycom3></mycom3>
+    </div>
+
+    <div id="app2">
+        <mycom3></mycom3>
+        <login></login>
+    </div>
+
+    <template id="tmp">
+        <div>
+            <h1>郭文峰一定可以工作顺利，感情顺利，创业顺利！！！</h1>
+        </div>
+    </template>
+
+    <template id="tmpl2">
+        <h1>这是私有的 login 组件</h1>
+    </template>
+
+
+    <script>
+        // 1.1 使用 Vue.extend 创建全局组件
+        // var com1 = Vue.extend({
+        //     template: '<h3>这是使用 Vue.extend 创建的组件</h3>'
+        // })
+        // 1.2 使用 Vue.component('组件的名称', 创建出来的组件对应的模板)
+        // Vue.component('my-com1', com1)
+
+        // Vue.component('my-com1', Vue.extend({
+        //     template: '<h3>这是使用 Vue.extend 创建的组件</h3>'
+        // }))
+
+        // 2.1 直接使用 Vue.component 创建出来的组件
+        // 组件模板只能包含一个唯一的根元素
+        // Vue.component('my-com1', {
+        //     template: '<h3>这是使用 Vue.extend 创建的组件</h3>'
+        // })
+
+        // 3.1 直接用 Vue.component 包含一个在 app 外部的部分
+        Vue.component('mycom3', {
+            template: '#tmp'
+        })
+
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+
+        var vm2 = new Vue({
+            el: '#app2',
+            data: {},
+            methods: {},
+            filters: {},
+            directives: {},
+            components: { // 定义实例内部私有组件的
+                login: {
+                    template: '#tmpl2'
+                }
+            },
+
+            beforeCreate() { },
+            created() { },
+            beforeMount() { },
+            mounted() { },
+            beforeUpdate() { },
+            updated() { },
+            beforeDestroy() { },
+            destroyed() { }
+        })
+    </script>
+</body>
+
+</html>
